@@ -48,7 +48,7 @@ public class AnschlagResource {
         if (securityHandler.isRole(accessToken, "editor") || securityHandler.isRole(accessToken, "admin")) {
             Anschlag anschlag = objectMapper.readValue(jsonString, Anschlag.class);
             String id = dbAccessor.saveAnschlag(anschlag);
-            messanger.triggerNotifications(anschlag.getStufe());
+            // messanger.triggerNotifications(anschlag.getStufe());
             return Response.ok(id).build();
         }
         return Response.status(401).build();
